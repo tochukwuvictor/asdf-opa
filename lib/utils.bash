@@ -62,7 +62,7 @@ install_version() {
     mv "$release_file" "$install_path/bin/"
 
     local tool_cmd
-    tool_cmd="$(echo "opa --help" | cut -d' ' -f2-)"
+    tool_cmd="opa"
     test -x "$install_path/bin/$tool_cmd" || fail "Expected $install_path/bin/$tool_cmd to be executable."
 
     echo "opa $version installation was successful!"
