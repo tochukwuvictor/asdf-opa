@@ -55,11 +55,11 @@ install_version() {
     fail "asdf-opa supports release installs only"
   fi
 
-  local release_file="$install_path/opa"
+  local binary_path="$install_path/bin/opa"
   (
     mkdir -p "$install_path/bin"
-    download_release "$version" "$release_file"
-    mv "$release_file" "$install_path/bin/"
+    download_release "$version" "$binary_path"
+    chmod +x "$binary_path"
 
     local tool_cmd
     tool_cmd="opa"
