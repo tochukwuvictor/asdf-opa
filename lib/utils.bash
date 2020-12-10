@@ -30,7 +30,7 @@ list_all_versions() {
   list_github_tags
 }
 
-get_arch () {
+get_arch() {
   uname | tr '[:upper:]' '[:lower:]'
 }
 
@@ -55,14 +55,14 @@ install_version() {
     fail "asdf-opa supports release installs only"
   fi
 
-  local release_file="$install_path/opa-$version"
+  local binary_path="$install_path/bin/opa"
   (
-    mkdir -p "$install_path"
-    download_release "$version" "$release_file"
-    mv "$release_file" "$install_path/bin/opa"
+    mkdir -p "$install_path/bin"
+    download_release "$version" "$binary_path"
+    chmod +x "$binary_path"
 
     local tool_cmd
-    tool_cmd="$(echo "opa --help" | cut -d' ' -f2-)"
+    tool_cmd="opa"
     test -x "$install_path/bin/$tool_cmd" || fail "Expected $install_path/bin/$tool_cmd to be executable."
 
     echo "opa $version installation was successful!"
