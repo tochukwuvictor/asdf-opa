@@ -30,7 +30,7 @@ list_all_versions() {
   list_github_tags
 }
 
-get_arch () {
+get_arch() {
   uname | tr '[:upper:]' '[:lower:]'
 }
 
