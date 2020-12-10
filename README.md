@@ -2,7 +2,7 @@
 
 # asdf-opa ![Build](https://github.com/tochukwuvictor/asdf-opa/workflows/Build/badge.svg) ![Lint](https://github.com/tochukwuvictor/asdf-opa/workflows/Lint/badge.svg)
 
-[opa](https://github.com/tochukwuvictor/asdf-opa) plugin for the [asdf version manager](https://asdf-vm.com).
+[opa](https://github.com/open-policy-agent/opa) plugin for the [asdf version manager](https://asdf-vm.com).
 
 </div>
 
@@ -26,7 +26,7 @@ Plugin:
 ```shell
 asdf plugin add opa
 # or
-asdf plugin add https://github.com/tochukwuvictor/asdf-opa.git
+asdf plugin add opa https://github.com/tochukwuvictor/asdf-opa.git
 ```
 
 opa:
