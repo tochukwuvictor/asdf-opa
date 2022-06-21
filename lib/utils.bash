@@ -41,7 +41,7 @@ get_arch() {
       echo "amd64"
       ;;
 
-    arm64)
+    arm64 | aarch64)
       echo "arm64_static"
       ;;
 
