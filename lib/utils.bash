@@ -30,19 +30,37 @@ list_all_versions() {
   list_github_tags
 }
 
-get_arch() {
+get_platform() {
   uname | tr '[:upper:]' '[:lower:]'
+}
+
+get_arch() {
+  case "$(uname -m)" in
+
+    x86_64)
+      echo "amd64"
+      ;;
+
+    arm64)
+      echo "arm64_static"
+      ;;
+
+    *)
+      echo "amd64"
+      ;;
+  esac
 }
 
 download_release() {
   local version filename platform url
   version="$1"
   filename="$2"
-  platform="$(get_arch)"
+  platform="$(get_platform)"
+  arch="$(get_arch)"
 
-  url="$GH_REPO/releases/download/v${version}/opa_${platform}_amd64"
+  url="$GH_REPO/releases/download/v${version}/opa_${platform}_${arch}"
 
-  echo "* Downloading opa release $version..."
+  echo "* Downloading opa release $version for $arch $platform..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
 
